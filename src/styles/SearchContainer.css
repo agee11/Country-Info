@@ -1,0 +1,9 @@
+.search-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.flex-40{
+  flex-basis: 40%;
+}
