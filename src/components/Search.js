@@ -20,7 +20,7 @@ class Search extends React.Component{
 
   render(){
     return (
-      <Form.Control className="flex-40" type="input" placeholder="Search for a country..." onChange={this.handleSearch}/>
+      <Form.Control style={this.props.darkmode ? {"background-color" : "#343a40"} : {"background-color" : "#fff"}}className="flex-40" type="input" placeholder="Search for a country..." onChange={this.handleSearch}/>
     );
   }
 }

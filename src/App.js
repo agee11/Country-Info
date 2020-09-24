@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from "./components/Header.js";
+import HeaderContainer from "./containers/HeaderContainer.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import SearchContainer from "./components/SearchContainer.js";
+import SearchContainer from "./containers/SearchContainer.js";
 import FlagCards from "./containers/FlagCards.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Header />
+      <header>
+        <HeaderContainer />
       </header>
       <SearchContainer />
       <FlagCards />

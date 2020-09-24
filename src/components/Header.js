@@ -7,24 +7,18 @@ class Header extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = {
-      darkMode: true
-    }
-
     this.handleDarkMode = this.handleDarkMode.bind(this);
   }
 
   handleDarkMode(){
-    this.setState(prevState => {
-      return {darkMode: !prevState.darkMode}
-    })
+    this.props.toggleDarkMode();
   }
 
   render(){
     return (
-    <Navbar expand="true" bg={this.state.darkMode ? "dark" : "light"} variant={this.state.darkMode ? "dark" : "light"}>
+    <Navbar expand="true" bg={this.props.darkmode ? "dark" : "light"} variant={this.props.darkmode ? "dark" : "light"}>
       <Navbar.Brand>Where in the world?</Navbar.Brand>
-      <Button onClick={this.handleDarkMode} variant={this.state.darkMode ? "dark" : "light"}><i className="fas fa-moon"></i> Dark Mode</Button>
+      <Button onClick={this.handleDarkMode} variant={this.props.darkmode ? "dark" : "light"}><i className="fas fa-moon"></i> Dark Mode</Button>
     </Navbar>
   )
   }

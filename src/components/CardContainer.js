@@ -32,9 +32,9 @@ class CardContainer extends React.Component{
     }
 
     return (
-      <div className="card-container">
-        {deck.map(country => {
-          return <CountryCard countryInfo={country}/>
+      <div className="card-container" style={this.props.darkmode ? {"background-color": "#212428"} : {"background-color" : "#fff"}}>
+        {deck.map((country,index) => {
+          return <CountryCard key={index} darkmode={this.props.darkmode} countryInfo={country}/>
         })}
       </div>
     )

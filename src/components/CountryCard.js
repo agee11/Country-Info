@@ -6,14 +6,14 @@ class CountryCard extends React.Component{
 
   render(props){
     return (
-      <Card className="country-card" style={{ width: '18rem' }}>
+      <Card bg={this.props.darkmode ? "dark" : "light"} text={this.props.darkmode ? "white" : "black"} className="country-card" style={{ width: '18rem' }}>
         <Card.Img className="card-img" variant="top" style={{ height: '11rem'}} src={this.props.countryInfo.flag} />
         <Card.Body>
           <Card.Title>{this.props.countryInfo.name}</Card.Title>
           <Card.Text>
-            <p><strong>Population: </strong>{this.props.countryInfo.population.toLocaleString()}</p>
-            <p><strong>Region: </strong>{this.props.countryInfo.region}</p>
-            <p><strong>Capital: </strong>{this.props.countryInfo.capital}</p>
+            <span><strong>Population: </strong>{this.props.countryInfo.population.toLocaleString()}</span><br/>
+            <span><strong>Region: </strong>{this.props.countryInfo.region}</span><br/>
+            <span><strong>Capital: </strong>{this.props.countryInfo.capital}</span>
           </Card.Text>
         </Card.Body>
       </Card>
