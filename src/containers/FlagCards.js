@@ -4,7 +4,8 @@ import CardContainer from "../components/CardContainer.js";
 function mapStateToProps(state){
     return {
       darkmode: state.darkmode,
-      region: state.filter
+      region: state.filter,
+      search: state.search
     }
 }
 

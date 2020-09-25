@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import SearchSection from "../components/SearchSection.js";
+import {updateSearch} from "../actions";
 
 function mapStateToProps(state){
   return {
@@ -7,5 +8,11 @@ function mapStateToProps(state){
   }
 }
 
+function mapDispatchToProps(dispatch){
+  return {
+    updateSearch: (text) => dispatch(updateSearch(text))
+  }
+}
 
-export default connect(mapStateToProps)(SearchSection);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchSection);

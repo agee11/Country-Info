@@ -11,3 +11,10 @@ export function setFilter(region){
     region
   }
 }
+
+export function updateSearch(text){
+  return {
+    type: "SEARCH",
+    text
+  }
+}

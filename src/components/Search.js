@@ -13,9 +13,7 @@ class Search extends React.Component{
   }
 
   handleSearch(event){
-    this.setState({
-      input: event.target.value
-    });
+    this.props.updateSearch(event.target.value);
   }
 
   render(){

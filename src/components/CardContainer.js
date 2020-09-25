@@ -31,6 +31,10 @@ class CardContainer extends React.Component{
       deck = this.state.cards;
     }
 
+    if(this.props.search !== ""){
+      deck = deck.filter(country => country.name.toLowerCase().includes(this.props.search));
+    }
+
     return (
       <div className="card-container" style={this.props.darkmode ? {"background-color": "#212428"} : {"background-color" : "#fff"}}>
         {deck.map((country,index) => {

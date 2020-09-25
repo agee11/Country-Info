@@ -8,7 +8,7 @@ class SearchSection extends React.Component{
   render(){
     return (
       <div className="search-container" style={this.props.darkmode ? {"background-color": "#212428"} : {"background-color": "#fff"}}>
-        <Search darkmode={this.props.darkmode}/>
+        <Search darkmode={this.props.darkmode} updateSearch={this.props.updateSearch}/>
         <FilterContainer />
       </div>
     )
