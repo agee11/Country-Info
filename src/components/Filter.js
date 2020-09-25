@@ -18,7 +18,7 @@ class Filter extends React.Component{
     return (
       <div>
         <DropdownButton variant={this.props.darkmode ? "dark" : "light"} title="Filter by Region">
-          <Dropdown.Item onSelect={this.handleFilter} eventKey="">None</Dropdown.Item>
+          <Dropdown.Item onSelect={this.handleFilter} eventKey="">All</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Africa">Africa</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Americas">Americas</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Asia">Asia</Dropdown.Item>
