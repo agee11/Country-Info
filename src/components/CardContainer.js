@@ -25,13 +25,13 @@ class CardContainer extends React.Component{
 
   render(){
     let deck;
-    if(this.props.region !== ""){
+    if(this.props.region){
       deck = this.state.cards.filter(country => country.region === this.props.region);
     }else{
       deck = this.state.cards;
     }
 
-    if(this.props.search !== ""){
+    if(this.props.search){
       deck = deck.filter(country => country.name.toLowerCase().includes(this.props.search));
     }
 

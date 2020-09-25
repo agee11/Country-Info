@@ -10,6 +10,7 @@ class Filter extends React.Component{
   }
 
   handleFilter(event){
+    console.log(event);
     this.props.setFilter(event);
   }
 
@@ -17,13 +18,13 @@ class Filter extends React.Component{
     return (
       <div>
         <DropdownButton variant={this.props.darkmode ? "dark" : "light"} title="Filter by Region">
+          <Dropdown.Item onSelect={this.handleFilter} eventKey="">None</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Africa">Africa</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Americas">Americas</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Asia">Asia</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Europe">Europe</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Oceania">Oceania</Dropdown.Item>
         </DropdownButton>
-      <p>{this.props.region}</p>
       </div>
     );
   }
