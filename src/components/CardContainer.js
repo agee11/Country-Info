@@ -36,7 +36,7 @@ class CardContainer extends React.Component{
     }
 
     return (
-      <div className="card-container" style={this.props.darkmode ? {"background-color": "#212428"} : {"background-color" : "#fff"}}>
+      <div className="card-container" style={this.props.darkmode ? {"backgroundColor": "#212428"} : {"backgroundColor" : "#fff"}}>
         {deck.map((country,index) => {
           return <CountryCard key={index} darkmode={this.props.darkmode} countryInfo={country}/>
         })}

@@ -6,7 +6,7 @@ class CountryCard extends React.Component{
 
   render(props){
     return (
-      <Card bg={this.props.darkmode ? "dark" : "light"} text={this.props.darkmode ? "white" : "black"} className="country-card" style={{ width: '18rem' }}>
+      <Card onClick={() => {console.log(this.props.countryInfo)}}bg={this.props.darkmode ? "dark" : "light"} text={this.props.darkmode ? "white" : "black"} className="country-card" style={{ width: '18rem' }}>
         <Card.Img className="card-img" variant="top" style={{ height: '11rem'}} src={this.props.countryInfo.flag} />
         <Card.Body>
           <Card.Title>{this.props.countryInfo.name}</Card.Title>
