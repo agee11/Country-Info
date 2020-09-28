@@ -1,12 +1,14 @@
 import React from "react";
 import {withRouter} from "react-router";
+import "../styles/CountryPage.css";
+import BorderLink from "./BorderLink";
 
 class CountryPage extends React.Component{
   constructor(props){
     super(props)
 
     this.state ={
-      countryInfo: [
+      countryInfo:
         {
           flag: "",
           name: "",
@@ -17,14 +19,14 @@ class CountryPage extends React.Component{
           capital: "",
           topLevelDomain: "",
           currencies: [{name: ""}],
-          languages: [{name: ""}]
+          languages: [{name: ""}],
+          borders: []
         }
-      ]
     }
   }
 
   componentDidMount(props){
-    fetch("https://restcountries.eu/rest/v2/name/"+this.props.match.params.name+"?fullText=true")
+    fetch("https://restcountries.eu/rest/v2/alpha/"+this.props.match.params.code)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -35,22 +37,41 @@ class CountryPage extends React.Component{
       })
   }
 
+  componentDidUpdate(nextProps){
+    if(nextProps !== this.props){
+      fetch("https://restcountries.eu/rest/v2/alpha/"+this.props.match.params.code)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({
+            countryInfo: result
+          })
+        }, error => {
+          console.log(error);
+        })
+    }
+  }
+
   render(props){
-    console.log(this.props.location.pathname);
+    console.log("render");
     return (
-      <div>
-        <img src={this.state.countryInfo[0].flag} alt="flag"/>
-        <h3>{this.state.countryInfo[0].name}</h3>
-        <div>
+      <div className="country-page">
+        <img className="flag-img" src={this.state.countryInfo.flag} alt="flag"/>
+        <div className="country-info">
+          <h3>{this.state.countryInfo.name}</h3>
           <div>
-            <p><strong>Native Name: </strong>{this.state.countryInfo[0].nativeName}</p>
-            <p><strong>Population: </strong>{this.state.countryInfo[0].population}</p>
-            <p><strong>Region: </strong>{this.state.countryInfo[0].region}</p>
-            <p><strong>Sub Region: </strong>{this.state.countryInfo[0].subregion}</p>
-            <p><strong>Capital: </strong>{this.state.countryInfo[0].capital}</p>
-            <p><strong>Top Level Domain: </strong>{this.state.countryInfo[0].topLevelDomain}</p>
-            <p><strong>Currencies: </strong>{this.state.countryInfo[0].currencies.map(item => {return item.name})}</p>
-            <p><strong>Languages: </strong>{this.state.countryInfo[0].languages.map(item => {return item.name})}</p>
+            <p><strong>Native Name: </strong>{this.state.countryInfo.nativeName}</p>
+            <p><strong>Population: </strong>{this.state.countryInfo.population}</p>
+            <p><strong>Region: </strong>{this.state.countryInfo.region}</p>
+            <p><strong>Sub Region: </strong>{this.state.countryInfo.subregion}</p>
+            <p><strong>Capital: </strong>{this.state.countryInfo.capital}</p>
+            <p><strong>Top Level Domain: </strong>{this.state.countryInfo.topLevelDomain}</p>
+            <p><strong>Currencies: </strong>{this.state.countryInfo.currencies.map(item => {return item.name})}</p>
+            <p><strong>Languages: </strong>{this.state.countryInfo.languages.map(item => {return item.name})}</p>
+          </div>
+          <div>
+            <p><strong>Border Countries: </strong>
+              {this.state.countryInfo.borders.map(country => { return <BorderLink code={country}/>})}
+            </p>
           </div>
         </div>
       </div>

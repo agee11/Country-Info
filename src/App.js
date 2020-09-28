@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import SearchContainer from "./containers/SearchContainer.js";
 import FlagCards from "./containers/FlagCards.js";
-import CountryPage from "./components/CountryPage.js"
+import CountryPage from "./components/CountryPage.js";
+import BackButton from "./components/BackButton";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       </header>
       <BrowserRouter>
         <Switch>
-          <Route path="/country/:name">
+          <Route path="/country/:code">
+            <BackButton />
             <CountryPage />
           </Route>
           <Route path="/">

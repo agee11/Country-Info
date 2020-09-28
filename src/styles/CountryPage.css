@@ -1,0 +1,17 @@
+.country-page{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5vw;
+}
+
+.flag-img{
+  width: 700px;
+  height: 500px;
+}
+
+.country-info{
+  padding-left: 10vw;
+  flex-direction: column;
+}
