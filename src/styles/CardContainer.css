@@ -1,7 +1,16 @@
 .card-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 30px;
-  min-height: 100vh;
+  min-height: calc(100vh - 98px - 56px);
+}
+
+@media only screen and (max-width: 655px){
+  .card-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 }

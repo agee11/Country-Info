@@ -51,26 +51,27 @@ class CountryPage extends React.Component{
     }
   }
 
-  render(props){
-    console.log("render");
+  render(){
     return (
-      <div className="country-page">
+      <div className={"country-page" + (this.props.darkmode ? " darkmode" : "")}>
         <img className="flag-img" src={this.state.countryInfo.flag} alt="flag"/>
         <div className="country-info">
-          <h3>{this.state.countryInfo.name}</h3>
+          <h3><strong>{this.state.countryInfo.name}</strong></h3>
           <div>
             <p><strong>Native Name: </strong>{this.state.countryInfo.nativeName}</p>
             <p><strong>Population: </strong>{this.state.countryInfo.population}</p>
             <p><strong>Region: </strong>{this.state.countryInfo.region}</p>
             <p><strong>Sub Region: </strong>{this.state.countryInfo.subregion}</p>
             <p><strong>Capital: </strong>{this.state.countryInfo.capital}</p>
+          </div>
+          <div>
             <p><strong>Top Level Domain: </strong>{this.state.countryInfo.topLevelDomain}</p>
             <p><strong>Currencies: </strong>{this.state.countryInfo.currencies.map(item => {return item.name})}</p>
-            <p><strong>Languages: </strong>{this.state.countryInfo.languages.map(item => {return item.name})}</p>
+            <p><strong>Languages: </strong>{this.state.countryInfo.languages.map((item,index) => {return item.name+(index < this.state.countryInfo.languages.length-1 ? ", " : "")})}</p>
           </div>
           <div>
             <p><strong>Border Countries: </strong>
-              {this.state.countryInfo.borders.map(country => { return <BorderLink code={country}/>})}
+              {this.state.countryInfo.borders.map(country => { return <BorderLink darkmode={this.props.darkmode} code={country}/>})}
             </p>
           </div>
         </div>

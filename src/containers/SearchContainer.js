@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import SearchSection from "../components/SearchSection.js";
+import SearchSection from "../components/SearchSection";
 import {updateSearch} from "../actions";
 
 function mapStateToProps(state){

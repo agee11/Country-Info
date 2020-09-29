@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Header from "../components/Header.js";
+import Header from "../components/Header";
 import {toggleDarkMode} from "../actions";
 
 function mapStateToProps(state){

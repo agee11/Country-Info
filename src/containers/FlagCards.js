@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import CardContainer from "../components/CardContainer.js";
+import CardContainer from "../components/CardContainer";
 
 function mapStateToProps(state){
     return {

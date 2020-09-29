@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import {withRouter} from "react-router";
+import "../styles/BorderLink.css";
 
 class BorderLink extends React.Component{
   constructor(props){
@@ -41,7 +42,7 @@ class BorderLink extends React.Component{
 
   render(){
     return(
-      <Button onClick={() => {this.props.history.push("/country/"+this.props.code)}}>{this.state.countryInfo.name}</Button>
+      <Button className="border-link" variant={this.props.darkmode ? "dark" : "light"} onClick={() => {this.props.history.push("/country/"+this.props.code)}}>{this.state.countryInfo.name}</Button>
     )
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import Search from "./Search.js";
-import FilterContainer from "../containers/FilterContainer.js";
+import Search from "./Search";
+import FilterContainer from "../containers/FilterContainer";
 import "../styles/SearchContainer.css"
 
 class SearchSection extends React.Component{

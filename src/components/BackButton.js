@@ -10,8 +10,8 @@ class BackButton extends React.Component{
 
   render(){
     return (
-      <div className="back-button-section">
-        <Button className="back-button" onClick={() => {this.props.history.goBack()}} variant="light"><i class="fas fa-arrow-left"></i> Back</Button>
+      <div className={"back-button-section" + (this.props.darkmode ? " darkmode" : "")}>
+        <Button className="back-button" onClick={() => {this.props.history.goBack()}} variant={this.props.darkmode ? "dark" : "light"}><i class="fas fa-arrow-left"></i> Back</Button>
       </div>
     )
   }

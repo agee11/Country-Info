@@ -2,3 +2,7 @@
   margin-bottom: 40px;
   max-height: 330px;
 }
+
+.country-card:hover{
+  box-shadow: 0 0 8px grey;
+}

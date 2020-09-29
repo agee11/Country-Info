@@ -1,12 +1,12 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import HeaderContainer from "./containers/HeaderContainer.js";
+import HeaderContainer from "./containers/HeaderContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import SearchContainer from "./containers/SearchContainer.js";
-import FlagCards from "./containers/FlagCards.js";
-import CountryPage from "./components/CountryPage.js";
-import BackButton from "./components/BackButton";
+import SearchContainer from "./containers/SearchContainer";
+import FlagCards from "./containers/FlagCards";
+import CountryPageContainer from "./containers/CountryPageContainer";
+import BackButtonContainer from "./containers/BackButtonContainer";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/country/:code">
-            <BackButton />
-            <CountryPage />
+            <BackButtonContainer />
+            <CountryPageContainer />
           </Route>
           <Route path="/">
             <SearchContainer />
