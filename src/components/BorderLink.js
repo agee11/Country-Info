@@ -27,17 +27,17 @@ class BorderLink extends React.Component{
   }
 
   componentDidUpdate(nextProps){
-    if(nextProps !== this.props){
-      fetch("https://restcountries.eu/rest/v2/alpha/" + this.props.code)
-        .then(res => res.json())
-        .then(result => {
-          this.setState({
-            countryInfo: result
-          })
-        }, error => {
-          console.log(error);
-        });
-    }
+    // if(nextProps !== this.props){
+    //   fetch("https://restcountries.eu/rest/v2/alpha/" + this.props.code)
+    //     .then(res => res.json())
+    //     .then(result => {
+    //       this.setState({
+    //         countryInfo: result
+    //       })
+    //     }, error => {
+    //       console.log(error);
+    //     });
+    // }
   }
 
   render(){

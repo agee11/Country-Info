@@ -1,6 +1,8 @@
 import React from "react";
 import CountryCard from "./CountryCard";
 import "../styles/CardContainer.css";
+import SearchContainer from "../containers/SearchContainer";
+import {withRouter} from "react-router";
 
 class CardContainer extends React.Component{
   constructor(props){
@@ -9,6 +11,8 @@ class CardContainer extends React.Component{
     this.state ={
       cards: []
     }
+
+    this.handleCardClicked = this.handleCardClicked.bind(this);
   }
 
   componentDidMount(){
@@ -16,11 +20,18 @@ class CardContainer extends React.Component{
       .then(res => res.json())
       .then(result => {
         this.setState({
-          cards: result
+          cards: result,
+          inProp: true
         })
       }, error => {
         console.log(error);
       })
+  }
+
+  handleCardClicked(countryCode){
+    this.setState({
+      countryCode: countryCode
+    })
   }
 
   render(){
@@ -36,13 +47,16 @@ class CardContainer extends React.Component{
     }
 
     return (
-      <div className="card-container" style={this.props.darkmode ? {"backgroundColor": "#212428"} : {"backgroundColor" : "#fff"}}>
-        {deck.map((country,index) => {
-          return <CountryCard key={index} darkmode={this.props.darkmode} countryInfo={country}/>
-        })}
+      <div>
+        <SearchContainer />
+        <div className="card-container" style={this.props.darkmode ? {"backgroundColor": "#212428"} : {"backgroundColor" : "#fff"}}>
+          {deck.map((country,index) => {
+            return <CountryCard key={index} handleClick={this.handleCardClicked} darkmode={this.props.darkmode} countryInfo={country}/>
+          })}
+        </div>
       </div>
     )
   }
 }
 
-export default CardContainer;
+export default withRouter(CardContainer);
