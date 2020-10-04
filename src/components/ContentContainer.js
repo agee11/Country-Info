@@ -10,12 +10,12 @@ class ContentContainer extends React.Component{
     return <TransitionGroup>
         <CSSTransition
           key={this.props.location.key}
-          timeout={3000}
+          timeout={300}
           classNames="page"
         >
         <div className="content-container">
           <Switch location={this.props.location}>
-            <Route exact path="/" component={FlagCards} />
+            <Route exact path="/Country-Info/" component={FlagCards} />
             <Route path="/country/:code" component={CountryPageContainer} />
           </Switch>
           </div>
