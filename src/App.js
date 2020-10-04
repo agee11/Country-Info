@@ -8,10 +8,8 @@ import ContentContainer from "./components/ContentContainer";
 function App() {
   return (
     <div className="App">
-      <header>
-        <HeaderContainer />
-      </header>
       <BrowserRouter>
+        <HeaderContainer />
         <ContentContainer />
       </BrowserRouter>
 

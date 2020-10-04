@@ -10,7 +10,7 @@ class ContentContainer extends React.Component{
     return <TransitionGroup>
         <CSSTransition
           key={this.props.location.key}
-          timeout={300}
+          timeout={500}
           classNames="page"
         >
         <div className="content-container">
