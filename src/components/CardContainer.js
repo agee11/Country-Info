@@ -11,30 +11,23 @@ class CardContainer extends React.Component{
     this.state ={
       cards: []
     }
-
-    this.handleCardClicked = this.handleCardClicked.bind(this);
   }
 
   componentDidMount(){
+    //Grab all country information from server and store in state
     fetch("https://restcountries.eu/rest/v2/all")
       .then(res => res.json())
       .then(result => {
         this.setState({
-          cards: result,
-          inProp: true
+          cards: result
         })
       }, error => {
         console.log(error);
       })
   }
 
-  handleCardClicked(countryCode){
-    this.setState({
-      countryCode: countryCode
-    })
-  }
-
   render(){
+    //Filter cards by region if applied
     let deck;
     if(this.props.region){
       deck = this.state.cards.filter(country => country.region === this.props.region);
@@ -42,6 +35,7 @@ class CardContainer extends React.Component{
       deck = this.state.cards;
     }
 
+    //Filter cards by search input if applied
     if(this.props.search){
       deck = deck.filter(country => country.name.toLowerCase().includes(this.props.search));
     }
@@ -51,7 +45,7 @@ class CardContainer extends React.Component{
         <SearchContainer />
         <div className="card-container" style={this.props.darkmode ? {"backgroundColor": "#212428"} : {"backgroundColor" : "#fff"}}>
           {deck.map((country,index) => {
-            return <CountryCard key={index} handleClick={this.handleCardClicked} darkmode={this.props.darkmode} countryInfo={country}/>
+            return <CountryCard key={index} darkmode={this.props.darkmode} countryInfo={country}/>
           })}
         </div>
       </div>

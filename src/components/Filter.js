@@ -10,7 +10,7 @@ class Filter extends React.Component{
   }
 
   handleFilter(event){
-    console.log(event);
+    //Set the global filter state to region selected
     this.props.setFilter(event);
   }
 

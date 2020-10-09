@@ -12,6 +12,7 @@ class Header extends React.Component{
   }
 
   handleDarkMode(){
+    //Toggles the global darkmode state
     this.props.toggleDarkMode();
   }
 

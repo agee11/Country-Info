@@ -14,6 +14,7 @@ class BorderLink extends React.Component{
     }
   }
 
+//Retrieve country information on mount in order to setup the button in render
   componentDidMount(){
     fetch("https://restcountries.eu/rest/v2/alpha/" + this.props.code)
       .then(res => res.json())
@@ -24,20 +25,6 @@ class BorderLink extends React.Component{
       }, error => {
         console.log(error);
       });
-  }
-
-  componentDidUpdate(nextProps){
-    // if(nextProps !== this.props){
-    //   fetch("https://restcountries.eu/rest/v2/alpha/" + this.props.code)
-    //     .then(res => res.json())
-    //     .then(result => {
-    //       this.setState({
-    //         countryInfo: result
-    //       })
-    //     }, error => {
-    //       console.log(error);
-    //     });
-    // }
   }
 
   render(){

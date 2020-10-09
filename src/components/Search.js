@@ -13,6 +13,7 @@ class Search extends React.Component{
   }
 
   handleSearch(event){
+    //Set the global search state to input value
     this.props.updateSearch(event.target.value);
   }
 

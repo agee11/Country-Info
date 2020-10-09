@@ -29,6 +29,7 @@ class CountryPage extends React.Component{
   }
 
   componentDidMount(props){
+    //Grab the country code from address and pull information from the server
     if(this.props.match)
     {
       fetch("https://restcountries.eu/rest/v2/alpha/"+this.props.match.params.code)
@@ -41,20 +42,6 @@ class CountryPage extends React.Component{
           console.log(error);
         })
     }
-  }
-
-  componentDidUpdate(nextProps){
-    // if(nextProps !== this.props && this.props.match){
-    //   fetch("https://restcountries.eu/rest/v2/alpha/"+this.props.match.params.code)
-    //     .then(res => res.json())
-    //     .then(result => {
-    //       this.setState({
-    //         countryInfo: result
-    //       })
-    //     }, error => {
-    //       console.log(error);
-    //     })
-    // }
   }
 
   render(){
