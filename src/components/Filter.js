@@ -12,13 +12,19 @@ class Filter extends React.Component{
   handleFilter(event){
     //Set the global filter state to region selected
     this.props.setFilter(event);
+    if(event){
+      document.getElementById("dropdown-button").innerHTML = event;
+    }else{
+      document.getElementById("dropdown-button").innerHTML = "Filter by Region";
+    }
+
   }
 
   render(){
     return (
       <div className="filter-dropdown">
-        <DropdownButton variant={this.props.darkmode ? "dark" : "light"} title="Filter by Region">
-          <Dropdown.Item onSelect={this.handleFilter} eventKey="">All</Dropdown.Item>
+        <DropdownButton id="dropdown-button" variant={this.props.darkmode ? "dark" : "light"} title="Filter by Region">
+          <Dropdown.Item onSelect={this.handleFilter} eventKey="">Filter by Region</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Africa">Africa</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Americas">Americas</Dropdown.Item>
           <Dropdown.Item onSelect={this.handleFilter} eventKey="Asia">Asia</Dropdown.Item>
