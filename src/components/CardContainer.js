@@ -37,7 +37,7 @@ class CardContainer extends React.Component{
 
     //Filter cards by search input if applied
     if(this.props.search){
-      deck = deck.filter(country => country.name.toLowerCase().includes(this.props.search));
+      deck = deck.filter(country => country.name.toLowerCase().includes(this.props.search.toLowerCase()));
     }
 
     return (
