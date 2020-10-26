@@ -1,8 +1,8 @@
 .card-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 30px 5vw;
   min-height: calc(100vh - 98px - 56px);
 }
 

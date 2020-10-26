@@ -1,7 +1,11 @@
 .brand{
-  padding: 0 14px;
+  margin-left: calc(5vw - 16px);
 }
 
 .brand:hover{
   cursor: pointer;
+}
+
+#dark-toggle{
+  margin-right: calc(5vw - 32px);
 }

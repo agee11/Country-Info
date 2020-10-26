@@ -1,7 +1,7 @@
 .country-page{
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   padding: 5vw;
   min-height: calc(100vh - 88px - 56px);
