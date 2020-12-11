@@ -10,4 +10,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(CardContainer);
-//Test comment
